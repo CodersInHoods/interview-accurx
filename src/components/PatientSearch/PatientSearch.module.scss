@@ -1,0 +1,42 @@
+.form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  input {
+    outline: none;
+    color: #0e6262;
+    width: 100%;
+    border: none;
+    padding: 0.5em 3em 0.5em 0.5em;
+    font-size: 1.5em;
+    border-bottom: 4px solid #0e6262;
+
+    &::placeholder {
+      color: #bbbbbb;
+      font-weight: 300;
+    }
+  }
+
+  button {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    outline: none;
+    border: none;
+    background: none;
+    color: #0e6262;
+    padding: 0.25em 1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      background: #0e6262;
+      color: #fff;
+    }
+  }
+}

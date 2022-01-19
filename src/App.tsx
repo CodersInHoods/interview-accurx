@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { PatientsTable } from "components/PatientsTable";
+import { SearchLayout } from "components/SearchLayout";
+import { SearchContext } from "context";
+import { useState } from "react";
 
-function App() {
+const App = () => {
+  const [searchValue, setSearchValue] = useState("");
+  const searchChangeHandler = (newValue: string) => setSearchValue(newValue);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SearchContext.Provider
+      value={{ searchValue, onSearchChange: searchChangeHandler }}
+    >
+      <SearchLayout>
+        <PatientsTable />
+      </SearchLayout>
+    </SearchContext.Provider>
   );
-}
+};
 
 export default App;
