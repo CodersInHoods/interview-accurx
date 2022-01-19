@@ -1,8 +1,6 @@
 // @ts-nocheck
 import { render, fireEvent, waitFor } from "@testing-library/react";
-
 import { SearchContext } from "context";
-import { SortDirection, SortOptions } from "./types";
 import { PatientsTable } from "./PatientsTable";
 
 const customRender = (ui, { providerProps, ...renderOptions }) => {
@@ -29,7 +27,7 @@ describe("PatientTable", () => {
     });
   });
 
-  test("should render all patients in asc order", async () => {
+  test("should render all patients in desc order", async () => {
     const { container, rerender } = customRender(<PatientsTable />, {
       providerProps: {
         value: {
@@ -39,11 +37,9 @@ describe("PatientTable", () => {
       },
     });
 
-    const select = container.querySelector("select");
+    const fullNameHeaderCell = container.querySelector("thead th:first-child");
 
-    fireEvent.change(select, {
-      target: { value: `${SortOptions.LAST_NAME}_${SortDirection.ASC}` },
-    });
+    fireEvent.click(fullNameHeaderCell);
 
     let firstCells;
 

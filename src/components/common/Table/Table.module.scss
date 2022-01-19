@@ -23,6 +23,12 @@
           padding: 1em;
           text-align: start;
           width: 33.3333%;
+          cursor: pointer;
+          transition: 0.2s;
+
+          &:hover {
+            background-color: rgba(14, 98, 98, 0.1);
+          }
 
           &:first-child {
             padding-left: 3em;
@@ -30,6 +36,10 @@
 
           &:last-child {
             padding-right: 3em;
+          }
+
+          .iconWrapper {
+            margin-left: 1em;
           }
         }
       }

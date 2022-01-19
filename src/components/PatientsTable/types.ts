@@ -1,13 +1,10 @@
-export enum SortDirection {
-  DESC = "DESC",
-  ASC = "ASC",
-}
-
 export enum SortOptions {
   LAST_NAME = "lastName",
+  NHS_NUMBER = "nhsNumber",
+  VACCINE_TYPE = "vaccineType",
 }
 
 export interface ISortOrder {
   type: SortOptions;
-  order: SortDirection;
+  isDescending: boolean;
 }
