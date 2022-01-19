@@ -16,6 +16,8 @@ export const Table: React.FC<ITable> = ({
     onSortOrder({ type, isDescending });
   };
 
+  if (!rows.length) return <h1 className={styles.error}>No data available</h1>;
+
   return (
     <div className={styles.tableWrapper}>
       <table>
@@ -26,7 +28,9 @@ export const Table: React.FC<ITable> = ({
                 {header.label}
                 {header.type === sortOrder.type && (
                   <span className={styles.iconWrapper}>
-                    <Arrow direction={!sortOrder.isDescending ? "down" : "up"} />
+                    <Arrow
+                      direction={!sortOrder.isDescending ? "down" : "up"}
+                    />
                   </span>
                 )}
               </th>
